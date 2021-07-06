@@ -1,7 +1,8 @@
 import axios from "axios";
+import { generateBoilerplateCode } from "./template/init";
 const fs = require("fs");
 const path = require("path");
-const AdmZip = require("adm-zip");
+const Zip = require("adm-zip");
 
 const STUBS = "grpc_stubs";
 
@@ -45,9 +46,13 @@ const downloadProtoZipFile = async (
   }
 };
 
-const unzipProtoFile = async (file: string, unzipFilePath: string) => {
-  const zip = new AdmZip(file);
-  zip.extractAllTo(`${unzipFilePath}/${STUBS}`, true);
+const unzipProtoFile = async (
+  file: string,
+  unzipFilePath: string
+): Promise<void> => {
+  const override = true;
+  const zip = new Zip(file);
+  zip.extractAllTo(`${unzipFilePath}/${STUBS}`, override);
   await fs.promises.unlink(file);
 };
 
@@ -57,6 +62,7 @@ export const download = async (orgId: string, serviceId: string) => {
     const servicePath = await setServiceStoragePath(orgId, serviceId);
     const zippedProtofile = await downloadProtoZipFile(protoUrl, servicePath);
     await unzipProtoFile(zippedProtofile, servicePath);
+    await generateBoilerplateCode(orgId, serviceId);
   } catch (error) {
     console.log(error);
     throw error;

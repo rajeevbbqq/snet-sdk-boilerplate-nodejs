@@ -1,7 +1,7 @@
 {
-  "name": "download-boilerplate-code",
+  "name": "snet-sdk-boilerplate-nodejs",
   "version": "1.0.0",
-  "description": "This is simple REST API example for AWS Lambda By Serverless framwork with TypeScript and MongoDB Atlas.",
+  "description": "Download SNET SDK Boilerplatecode for Nodejs",
   "main": "index.js",
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.json",
@@ -53,19 +53,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Q-Angelo/aws-node-typescript-rest-api.git"
+    "url": "git+https://github.com/singnet/snet-sdk-boilerplate-nodejs"
   },
-  "keywords": [
-    "Nodejs",
-    "TypeScript",
-    "ServerLess",
-    "MongoDB Atlas",
-    "AWS Lambda"
-  ],
-  "author": "May",
-  "license": "ISC",
+  "author": "SNET",
   "bugs": {
-    "url": "https://github.com/Q-Angelo/aws-node-typescript-rest-api/issues"
+    "url": "https://github.com/singnet/snet-sdk-boilerplate-nodejs/issues"
   },
-  "homepage": "https://github.com/Q-Angelo/aws-node-typescript-rest-api#readme"
+  "homepage": "https://github.com/singnet/snet-sdk-boilerplate-nodejs#readme"
 }
